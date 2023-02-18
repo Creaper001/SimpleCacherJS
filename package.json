@@ -1,0 +1,18 @@
+{
+  "name": "cacher.js",
+  "version": "1.0.0",
+  "description": "Função para evitar chamadas duplicadas para mesmos parâmetros ao salvar resultados em objeto",
+  "main": "examples.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Creaper001/SimpleCacherJS"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Henrique C. Oliveira",
+  "license": "ISC"
+}
