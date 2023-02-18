@@ -1,9 +1,9 @@
 module.exports = function Cacher(callback) {
   const $ = {};
 
-  function cache(args, i = 0, data = $) {
+  async function cache(args, i = 0, data = $) {
     if (i === args.length - 1) return data[args[i]] ?? null;
-    if (args[i] in data) return cache(args, i + 1, data[args[i]]);
+    if (args[i] in data) return await cache(args, i + 1, data[args[i]]);
 
     return null;
   }
@@ -22,11 +22,11 @@ module.exports = function Cacher(callback) {
     };
   }
 
-  function run(args) {
-    const result = callback(...args);
+  async function run(args) {
+    const result = await callback(...args);
     Object.assign($, prepare(args, result));
     return result;
   }
 
-  return (...args) => cache(args) ?? run(args);
+  return async (...args) => (await cache(args)) ?? (await run(args));
 };

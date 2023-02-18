@@ -5,17 +5,22 @@ function sum(n1, n2) {
   return n1 + n2;
 }
 
-const sumCacher = Cacher(sum);
-console.log(sumCacher(1, 4));
-console.log(sumCacher(3, 1));
-console.log(sumCacher(1, 4));
-
-function rand(n1) {
+async function rand(n1) {
+  await new Promise((r) => setTimeout(r, 5000));
   console.log('run the random function');
   return n1 * 50;
 }
 
-const randCacher = Cacher(rand);
-console.log(randCacher(1));
-console.log(randCacher(3));
-console.log(randCacher(1));
+(async () => {
+  const sumCacher = Cacher(sum);
+  console.log(await sumCacher(1, 4));
+  console.log(await sumCacher(3, 1));
+  console.log(await sumCacher(1, 4));
+
+  const randCacher = Cacher(rand);
+  console.log(await randCacher(1));
+  console.log(await randCacher(1));
+  console.log(await randCacher(1));
+  console.log(await randCacher(1));
+  console.log(await randCacher(1));
+})();
