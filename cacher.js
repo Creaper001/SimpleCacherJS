@@ -1,4 +1,4 @@
-module.export = function Cacher(callback) {
+module.exports = function Cacher(callback) {
   const $ = {};
 
   function cache(args, i = 0, data = $) {
